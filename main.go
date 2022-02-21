@@ -89,6 +89,7 @@ func index(c *gin.Context) {
 				Date:    res.date,
 			},
 			"login": "nil",
+			"title": "Home",
 		})
 	} else {
 		c.HTML(200, "index.html", gin.H{
@@ -98,6 +99,7 @@ func index(c *gin.Context) {
 				Date:    res.date,
 			},
 			"login": "true",
+			"title": "Home",
 		})
 	}
 }
@@ -107,10 +109,12 @@ func about(c *gin.Context) {
 	if val == "" {
 		c.HTML(200, "about.html", gin.H{
 			"login": "nil",
+			"title": "About Me",
 		})
 	} else {
 		c.HTML(200, "about.html", gin.H{
 			"login": "true",
+			"title": "About Me",
 		})
 	}
 }
@@ -120,10 +124,12 @@ func contact(c *gin.Context) {
 	if val == "" {
 		c.HTML(200, "contact.html", gin.H{
 			"login": "nil",
+			"title": "Contact",
 		})
 	} else {
 		c.HTML(200, "contact.html", gin.H{
 			"login": "true",
+			"title": "Contact",
 		})
 	}
 }
@@ -160,11 +166,13 @@ func post(c *gin.Context) {
 		c.HTML(200, "post.html", gin.H{
 			"ress":  ress.Posts,
 			"login": "nil",
+			"title": "Blog Posts",
 		})
 	} else {
 		c.HTML(200, "post.html", gin.H{
 			"ress":  ress.Posts,
 			"login": "true",
+			"title": "Blog Posts",
 		})
 	}
 }
@@ -223,6 +231,7 @@ func admin(c *gin.Context) {
 			Username: jsonstruct.Username,
 			Password: jsonstruct.Password,
 		},
+		"title": "Admin",
 	})
 	defer row.Close()
 }
